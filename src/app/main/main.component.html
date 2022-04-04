@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+      <col class="col-md-12">
+      <table class="table table-bordered text-center table-hover">
+          <thead>
+              <tr>
+                  <th>Version</th>
+                  <th>Update Date</th>
+                  <th>Environment</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let record of records">
+                  <td>{{record.version}}</td>
+                  <td>{{record.updateDate | date: 'MMM d, y'}}</td>
+                  <td>{{record.environment}}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
