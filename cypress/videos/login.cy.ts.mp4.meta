@@ -1,0 +1,21 @@
+;FFMETADATA1
+[CHAPTER]
+TIMEBASE=1/1000
+START=-11577
+END=4433
+title=login Should not login if form is not valid
+[CHAPTER]
+TIMEBASE=1/1000
+START=9636
+END=20446
+title=login Should login if form is not valid
+[CHAPTER]
+TIMEBASE=1/1000
+START=22628
+END=31299
+title=login Should redirect to add slider route
+[CHAPTER]
+TIMEBASE=1/1000
+START=30829
+END=39973
+title=login Should add slider

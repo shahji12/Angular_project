@@ -1,0 +1,82 @@
+<div class="container" #main>
+  <h2>Video Content</h2>
+  <div class="row">
+      <col class="col-md-12">
+      <div class="d-flex my-3 float-right">
+      <button class="btn butn btnt btnt my-auto" data-cy="add-sliders" data-toggle="modal"
+      data-target="#exampleModalCenter">Add Videos</button>
+      </div>
+                          <!-- Modal -->
+                          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered" role="document">
+                              <div class="modal-content">
+                                  <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLongTitle">Add Video</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                      </button>
+                                  </div>
+                                  <div class="modal-body">
+                                      <form [formGroup]="addVideos">
+                                          <div class="form-group text-lg-left">
+                                              <label for="title">Title</label>
+                                              <input type="text" formControlName="title" data-cy="title" class="form-control"
+                                                  id="title" aria-describedby="emailHelp"
+                                                  placeholder="Title">
+                                          </div>
+                                          <div class="form-group text-lg-left">
+                                              <label for="detail">Detail</label>
+                                              <textarea type="text" formControlName="detail" data-cy="detail" class="form-control"
+                                                  id="detail" placeholder="Detail"></textarea>
+                                          </div>
+                                          <div class="form-group text-lg-left">
+                                            <label for="poster">Poster</label>
+                                            <img [src]="url" alt="" height="200" width="300">
+                                            <input type="file" formControlName="poster" (change)="previewPoster($event)" data-cy="poster" class="form-control"
+                                                id="poster" >
+                                        </div>
+                                          <div class="form-group text-lg-left">
+                                            <label for="attachment">Upload movie</label>
+                                            <img [src]="attachment" alt="" height="200" width="300">
+                                            <input type="file" formControlName="attachment" (change)="previewAttachment($event)" data-cy="attachment" class="form-control"
+                                                id="attachment" >
+                                        </div>
+                                          <button type="submit" data-cy="add-data" class="btn butn" (click)="isUpdate? updateVideos() : addVideo() " data-dismiss="modal">Submit</button>
+                                      </form>
+                                  </div>
+                                  <div class="modal-footer">
+
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+      <table class="table table-bordered text-center table-hover">
+          <thead>
+              <tr>
+                  <th>Title</th>
+                  <th>Detail</th>
+                  <th>Poster</th>
+                  <th>Video</th>
+                  <th>Action</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let record of records$ |async">
+                  <td>{{record.title}}</td>
+                  <td>{{record.detail}}</td>
+                  <td><img src={{record.poster}} height="50" width="80" alt=""></td>
+                  <td><img src="" height="50" width="80" alt=""></td>
+                  <td>
+                    <div class="btn-group">
+                      <button type="button" class="btn actionBtn" data-toggle="modal"
+                      data-target="#exampleModalCenter" (click)="getEditData(record)">Edit</button>
+                      <button type="button" class="btn actionBtn" (click)="deleteVideos(record.id)">Delete</button>
+                    </div>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+

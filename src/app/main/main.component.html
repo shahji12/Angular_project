@@ -1,19 +1,71 @@
-<div class="container">
+<div class="container" #main>
+  <h2>Slider Content</h2>
   <div class="row">
       <col class="col-md-12">
+      <div class="d-flex my-3 float-right">
+      <button class="btn butn btnt btnt my-auto" data-cy="add-sliders" data-toggle="modal"
+      data-target="#exampleModalCenter">Add Slider</button>
+      </div>
+                          <!-- Modal -->
+                          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered" role="document">
+                              <div class="modal-content">
+                                  <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLongTitle">Add Slider</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                      </button>
+                                  </div>
+                                  <div class="modal-body">
+                                      <form [formGroup]="AddSlider">
+                                          <div class="form-group text-lg-left">
+                                              <label for="title">Title</label>
+                                              <input type="text" formControlName="title" data-cy="title" class="form-control"
+                                                  id="title" aria-describedby="emailHelp"
+                                                  placeholder="Title">
+                                          </div>
+                                          <div class="form-group text-lg-left">
+                                              <label for="detail">Detail</label>
+                                              <textarea type="text" formControlName="detail" data-cy="detail" class="form-control"
+                                                  id="detail" placeholder="Description"></textarea>
+                                          </div>
+                                          <div class="form-group text-lg-left">
+                                            <label for="image">Image</label>
+                                            <img [src]="url" alt="" height="200" width="200">
+                                            <input type="file" formControlName="imgUrl" data-cy="imgUrl" class="form-control"
+                                                id="image" (change)="previewImg($event)">
+                                        </div>
+                                          <button type="submit" data-cy="add-data" class="btn butn" (click)="isUpdate ? updateSlider() : addSlider()" data-dismiss="modal">Submit</button>
+                                      </form>
+                                  </div>
+                                  <div class="modal-footer">
+
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
       <table class="table table-bordered text-center table-hover">
           <thead>
               <tr>
-                  <th>Version</th>
-                  <th>Update Date</th>
-                  <th>Environment</th>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Image</th>
+                  <th>Action</th>
               </tr>
           </thead>
           <tbody>
-              <tr *ngFor="let record of records">
-                  <td>{{record.version}}</td>
-                  <td>{{record.updateDate | date: 'MMM d, y'}}</td>
-                  <td>{{record.environment}}</td>
+              <tr *ngFor="let record of records$ | async">
+                  <td>{{record.title}}</td>
+                  <td>{{record.detail}}</td>
+                  <td><img src="{{record.imgUrl ? record.imgUrl : defaultImg}}" height="50" width="80" alt=""></td>
+                  <td>
+                    <div class="btn-group">
+                      <button type="button" (click)="getEditValue(record)"  class="btn actionBtn" data-toggle="modal"
+                      data-target="#exampleModalCenter">Edit</button>
+                      <button type="button" class="btn actionBtn" (click)="deleteSlider(record.id)">Delete</button>
+                    </div>
+                  </td>
               </tr>
           </tbody>
       </table>

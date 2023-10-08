@@ -1,3 +1,24 @@
 .container{
   margin-top: 100px!important;
+
+  h2{
+    margin-bottom: 37px;
+    text-align: center;
+    font-family: inherit;
+    font-weight: bolder;
+    font-size: 45px;
+  }
+  .butn{
+    background-color: #17a2b8;
+    color: black;
+    font-weight: 700;
+  }
+  .actionBtn{
+    border: 0.2px solid #17a2b8;
+    font-weight: 400;
+  }
+  .actionBtn:hover{
+    background-color: #17a2b8;
+    font-weight: 700;
+  }
 }

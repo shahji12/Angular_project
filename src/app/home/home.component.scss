@@ -1,0 +1,58 @@
+html,body {
+	height: 100%;
+}
+
+.global-container{
+	height:100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-image: url('../../assets/img/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+form{
+	font-size: 14px;
+	margin-top: 30px;
+}
+
+.card-title{
+  font-weight: 700;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.btn{
+	font-size: 14px;
+	margin-top:20px;
+}
+
+
+.login-form{
+	width:420px;
+	margin:20px;
+}
+
+.sign-up{
+	text-align:center;
+	padding:20px 0 0;
+}
+
+.alert{
+	margin-bottom:-30px;
+	font-size: 13px;
+	margin-top:20px;
+}
+.card{
+  background-color: #090909c2;
+  color:white;
+}
+.card-body {
+  padding: 2.25rem;
+}
+a {
+  color: #dc3545;
+}

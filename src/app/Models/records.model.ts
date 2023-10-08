@@ -1,5 +1,6 @@
 export interface Records{
-  version : Number,
-  updateDate : String,
-  environment : String
+  user:String,
+  title:String,
+  description:String,
+  category:String
 }

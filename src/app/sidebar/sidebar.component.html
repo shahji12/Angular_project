@@ -1,0 +1,33 @@
+<div #mySidebar class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+  <a class="navbar-brand" href="#"><img src="../../assets/img/logo.png"></a>
+<div class="navItem">
+  <a href="#">Dashboard</a>
+</div>
+<div class="navItem">
+  <div id="accordion">
+      <div id="headingOne">
+          <a class="" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Content
+          <i class="fa fa-caret-down ml-2" aria-hidden="true"></i>
+          </a>
+      </div>
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+        <a href="#">Movies</a>
+      </div>
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+        <a href="#" routerLink="/main/videos">Videos</a>
+      </div>
+  </div>
+</div>
+<div class="navItem">
+  <a href="#" routerLink="/main" data-cy="add-slider">Slider</a>
+</div>
+<div class="navItem">
+  <a href="#">Settings</a>
+</div>
+<div class="navItem">
+  <a href="#" (click)="logout()"> Logout </a>
+</div>
+</div>
+

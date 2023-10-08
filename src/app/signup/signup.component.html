@@ -1,0 +1,32 @@
+<div class="global-container">
+	<div class="card login-form">
+	<div class="card-body">
+    <a class="card-title" href="#">Kincaid</a>
+		<h3 class="card-title text-center">Signup</h3>
+		<div class="card-text">
+			<!--
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
+			<form [formGroup]="signupForm" (ngSubmit)="signUp()">
+				<!-- to error: add class "has-danger" -->
+        <div class="form-group">
+					<label for="userName">User name</label>
+					<input type="text" formControlName="name" class="form-control form-control-sm" id="userName">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Email address</label>
+					<input type="email" formControlName="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Password</label>
+					<input type="password" formControlName="password" class="form-control form-control-sm" id="exampleInputPassword1">
+				</div>
+				<button type="submit" class="btn btn-danger btn-block">Signup</button>
+
+				<div class="sign-up">
+					Do you have an account? <a href="/login">Please login</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</div>
